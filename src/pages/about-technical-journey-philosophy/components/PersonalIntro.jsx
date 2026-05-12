@@ -53,8 +53,8 @@ const PersonalIntro = () => {
               <div className="w-full max-w-md mx-auto">
                 <div className="relative overflow-hidden rounded-2xl shadow-brand-lg">
                   <Image
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop&crop=face"
-                    alt="Alex Chen - Full-Stack Developer"
+                    src="/assets/images/my-image.png"
+                    alt="Saurabh Anand - Full-Stack Developer"
                     className="w-full h-96 object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
