@@ -1,5 +1,10 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import Icon from '../../../components/AppIcon';
+
+const Section3DAccent = dynamic(() => import('components/hero/Section3DAccent'), {
+  ssr: false,
+});
 
 const ValuesSection = () => {
   const values = [
@@ -78,8 +83,9 @@ const ValuesSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-background">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section className="relative overflow-hidden py-20 bg-background">
+      <Section3DAccent small />
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
             Core Values & Principles

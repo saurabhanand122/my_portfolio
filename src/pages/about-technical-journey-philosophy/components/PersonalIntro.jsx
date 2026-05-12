@@ -1,11 +1,17 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import Icon from '../../../components/AppIcon';
 import Image from '../../../components/AppImage';
 
+const Section3DAccent = dynamic(() => import('components/hero/Section3DAccent'), {
+  ssr: false,
+});
+
 const PersonalIntro = () => {
   return (
-    <section id="home" className="relative scroll-mt-20 bg-gradient-to-br from-primary/5 via-background to-accent/5 py-20">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="home" className="relative overflow-hidden scroll-mt-20 bg-gradient-to-br from-primary/5 via-background to-accent/5 py-20">
+      <Section3DAccent />
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div className="space-y-8">

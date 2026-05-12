@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
+import { motion } from 'framer-motion';
 import Icon from '../../../components/AppIcon';
+
+const Section3DAccent = dynamic(() => import('components/hero/Section3DAccent'), {
+  ssr: false,
+});
 
 const SkillsMatrix = () => {
   const [activeCategory, setActiveCategory] = useState('frontend');
@@ -87,8 +93,9 @@ const SkillsMatrix = () => {
   };
 
   return (
-    <section id="skills" className="scroll-mt-20 py-20 bg-background">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="skills" className="relative overflow-hidden scroll-mt-20 py-20 bg-background">
+      <Section3DAccent small />
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
             Technical Skills Matrix
@@ -117,11 +124,33 @@ const SkillsMatrix = () => {
         </div>
 
         {/* Skills Grid */}
-        <div className="grid lg:grid-cols-2 gap-8">
+        <motion.div
+          className="grid lg:grid-cols-2 gap-8"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.1
+              }
+            }
+          }}
+        >
           {skillCategories?.[activeCategory]?.skills?.map((skill, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-card border border-border rounded-xl p-6 hover-lift transition-all duration-300 hover:shadow-brand"
+              className="bg-card border border-border rounded-xl p-6 hover-lift transition-all duration-300 hover:shadow-brand cursor-pointer"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 }
+              }}
+              whileHover={{
+                scale: 1.02,
+                transition: { duration: 0.2 }
+              }}
+              whileTap={{ scale: 0.98 }}
             >
               <div className="flex items-start justify-between mb-4">
                 <div>
@@ -147,9 +176,9 @@ const SkillsMatrix = () => {
               </div>
 
               <p className="text-sm text-muted-foreground">{skill?.description}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Skills Summary */}
         <div className="mt-16 bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-8">

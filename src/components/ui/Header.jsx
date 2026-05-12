@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import Icon from '../AppIcon';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const navigationItems = [
     {
@@ -20,9 +20,9 @@ const Header = () => {
       icon: 'Route'
     },
     { 
-      name: 'Philosophy', 
-      id: 'philosophy',
-      icon: 'Lightbulb'
+      name: 'Projects', 
+      id: 'projects',
+      icon: 'Briefcase'
     },
     { 
       name: 'Skills', 
@@ -69,51 +69,54 @@ const Header = () => {
 
     if (section) {
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      navigate(`/#${sectionId}`);
+      window.history.replaceState(null, '', `#${sectionId}`);
     }
 
     closeMenu();
   };
 
+  const currentHash = router.asPath.split('#')[1] || '';
+
   const isActiveSection = (sectionId) => {
-    return location?.hash === `#${sectionId}`;
+    return currentHash === sectionId;
   };
 
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-background/95 backdrop-blur-md shadow-brand border-b border-border' 
-          : 'bg-background/80 backdrop-blur-sm'
+          ? 'bg-[#02030a]/90 backdrop-blur-xl border-b border-cyan-500/10 shadow-brand' 
+          : 'bg-[#02030a]/75 backdrop-blur-lg'
       }`}
     >
       <div className="w-full">
         <div className="flex items-center justify-between h-16 px-6 lg:px-8">
           {/* Logo */}
-          <Link 
-            to="/" 
-            className="flex items-center space-x-3 hover-lift"
-            onClick={closeMenu}
-          >
-            <div className="relative">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center shadow-brand">
-                <Icon name="Code2" size={20} color="white" strokeWidth={2.5} />
+          <Link href="/" legacyBehavior>
+            <a
+              className="flex items-center space-x-3 hover-lift"
+              onClick={closeMenu}
+            >
+              <div className="relative">
+                <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center shadow-brand">
+                  <Icon name="Code2" size={20} color="white" strokeWidth={2.5} />
+                </div>
+                <div className="absolute -top-1 -right-1 w-3 h-3 bg-conversion rounded-full animate-pulse"></div>
               </div>
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-conversion rounded-full animate-pulse"></div>
-            </div>
-            <div className="hidden sm:block">
-              <h1 className="text-xl font-bold text-primary">DevFolio Pro</h1>
-              <p className="text-xs text-muted-foreground -mt-1">Architect of Digital Experiences</p>
-            </div>
+              <div className="hidden sm:block">
+                <h1 className="text-xl font-bold text-white">Saurabh Anand</h1>
+                <p className="text-xs text-cyan-300/70 -mt-1">Futuristic full-stack architect</p>
+              </div>
+            </a>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-1">
+          <nav className="hidden lg:flex items-center space-x-2">
             {navigationItems?.map((item) => {
-              const itemClasses = `flex items-center space-x-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover-lift ${
+              const itemClasses = `flex items-center space-x-2 px-4 py-2 rounded-2xl text-sm font-medium transition-all duration-200 ${
                 isActiveSection(item?.id)
-                  ? 'bg-primary text-primary-foreground shadow-brand'
-                  : 'text-foreground hover:bg-muted hover:text-primary'
+                  ? 'bg-cyan-500/15 text-cyan-100 shadow-brand'
+                  : 'text-slate-200 hover:bg-slate-800 hover:text-cyan-300'
               }`;
 
               if (item?.downloadUrl) {
@@ -166,13 +169,13 @@ const Header = () => {
               ? 'max-h-screen opacity-100 visible' :'max-h-0 opacity-0 invisible overflow-hidden'
           }`}
         >
-          <div className="px-6 py-4 bg-background/95 backdrop-blur-md border-t border-border">
+          <div className="px-6 py-4 bg-[#02030a]/95 backdrop-blur-xl border-t border-slate-800/40">
             <nav className="space-y-2">
               {navigationItems?.map((item) => {
-                const itemClasses = `flex w-full items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
+                const itemClasses = `flex w-full items-center space-x-3 px-4 py-3 rounded-2xl text-sm font-medium transition-all duration-200 ${
                   isActiveSection(item?.id)
-                    ? 'bg-primary text-primary-foreground shadow-brand'
-                    : 'text-foreground hover:bg-muted hover:text-primary'
+                    ? 'bg-cyan-500/15 text-cyan-100 shadow-brand'
+                    : 'text-slate-200 hover:bg-slate-800 hover:text-cyan-300'
                 }`;
 
                 if (item?.downloadUrl) {
