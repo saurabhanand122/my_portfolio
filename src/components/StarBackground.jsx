@@ -8,8 +8,8 @@ function Stars() {
   const ref = useRef();
 
   const [sphere] = useMemo(() => {
-    const sphere = new Float32Array(2000 * 3);
-    for (let i = 0; i < 2000; i++) {
+    const sphere = new Float32Array(800 * 3);
+    for (let i = 0; i < 800; i++) {
       sphere[i * 3] = (Math.random() - 0.5) * 100;
       sphere[i * 3 + 1] = (Math.random() - 0.5) * 100;
       sphere[i * 3 + 2] = (Math.random() - 0.5) * 100;
@@ -19,8 +19,8 @@ function Stars() {
 
   useFrame((state, delta) => {
     if (ref.current) {
-      ref.current.rotation.x -= delta / 50;
-      ref.current.rotation.y -= delta / 75;
+      ref.current.rotation.x -= delta / 100;
+      ref.current.rotation.y -= delta / 150;
     }
   });
 
@@ -30,7 +30,7 @@ function Stars() {
         <PointMaterial
           transparent
           color="#ffffff"
-          size={0.5}
+          size={0.3}
           sizeAttenuation={true}
           depthWrite={false}
           blending={THREE.AdditiveBlending}

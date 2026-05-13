@@ -26,7 +26,7 @@ function FloatingShapes() {
           onPointerOut={() => setHovered(null)}
           scale={hovered === 'torus' ? 1.2 : 1}
         >
-          <torusKnotGeometry args={[1.6, 0.28, 100, 16]} />
+          <torusKnotGeometry args={[1.6, 0.28, 50, 8]} />
           <MeshDistortMaterial
             color="#38bdf8"
             emissive="#0ea5e9"
@@ -40,34 +40,15 @@ function FloatingShapes() {
         </mesh>
       </Float>
 
-      {/* Floating Icosahedron */}
-      <Float speed={1.5} rotationIntensity={1} floatIntensity={2}>
-        <mesh
-          position={[2.2, -0.4, 1.5]}
-          rotation={[0.35, 1.4, 0.2]}
-          onPointerOver={() => setHovered('icosa')}
-          onPointerOut={() => setHovered(null)}
-          scale={hovered === 'icosa' ? 1.3 : 1}
-        >
-          <icosahedronGeometry args={[0.5, 1]} />
-          <meshStandardMaterial
-            color="#fb7185"
-            emissive="#f472b6"
-            metalness={0.9}
-            roughness={0.12}
-          />
-        </mesh>
-      </Float>
-
-      {/* Sphere */}
-      <Float speed={2} rotationIntensity={2} floatIntensity={1.5}>
+      {/* Simple Sphere */}
+      <Float speed={1} rotationIntensity={0.5} floatIntensity={1}>
         <mesh
           position={[-1.8, 0.9, 2.1]}
           onPointerOver={() => setHovered('sphere')}
           onPointerOut={() => setHovered(null)}
-          scale={hovered === 'sphere' ? 1.4 : 1}
+          scale={hovered === 'sphere' ? 1.2 : 1}
         >
-          <sphereGeometry args={[0.38, 32, 32]} />
+          <sphereGeometry args={[0.3, 16, 16]} />
           <meshStandardMaterial
             color="#7c3aed"
             emissive="#a855f7"
@@ -76,104 +57,31 @@ function FloatingShapes() {
           />
         </mesh>
       </Float>
-
-      {/* New: Floating Cube */}
-      <Float speed={1.8} rotationIntensity={1.5} floatIntensity={1.8}>
-        <mesh
-          position={[0, 1.5, -1]}
-          onPointerOver={() => setHovered('cube')}
-          onPointerOut={() => setHovered(null)}
-          scale={hovered === 'cube' ? 1.25 : 1}
-        >
-          <boxGeometry args={[0.6, 0.6, 0.6]} />
-          <meshStandardMaterial
-            color="#22d3ee"
-            emissive="#0891b2"
-            metalness={0.8}
-            roughness={0.1}
-          />
-        </mesh>
-      </Float>
-
-      {/* New: Octahedron */}
-      <Float speed={2.2} rotationIntensity={2} floatIntensity={2.2}>
-        <mesh
-          position={[-2.5, -1, 0.5]}
-          onPointerOver={() => setHovered('octa')}
-          onPointerOut={() => setHovered(null)}
-          scale={hovered === 'octa' ? 1.35 : 1}
-        >
-          <octahedronGeometry args={[0.45, 0]} />
-          <meshStandardMaterial
-            color="#34d399"
-            emissive="#059669"
-            metalness={0.85}
-            roughness={0.15}
-          />
-        </mesh>
-      </Float>
-
-      {/* Energy Rings */}
+      {/* Simple Energy Ring */}
       <mesh position={[0, -2.8, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-        <ringGeometry args={[3.2, 4.4, 64]} />
-        <meshBasicMaterial color="#38bdf8" transparent opacity={0.22} />
-      </mesh>
-      <mesh position={[0, -2.85, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-        <ringGeometry args={[2.5, 3.15, 64]} />
-        <meshBasicMaterial color="#a855f7" transparent opacity={0.18} />
+        <ringGeometry args={[3.2, 4.4, 32]} />
+        <meshBasicMaterial color="#38bdf8" transparent opacity={0.15} />
       </mesh>
     </group>
   );
 }
 
 function FloatingParticles() {
-  const particlesRef = useRef();
-
-  useFrame((state) => {
-    if (particlesRef.current) {
-      particlesRef.current.rotation.y += 0.0005;
-    }
-  });
-
-  const particleCount = 20;
-  const positions = new Float32Array(particleCount * 3);
-
-  for (let i = 0; i < particleCount; i++) {
-    positions[i * 3] = (Math.random() - 0.5) * 20;
-    positions[i * 3 + 1] = (Math.random() - 0.5) * 20;
-    positions[i * 3 + 2] = (Math.random() - 0.5) * 20;
-  }
-
-  return (
-    <points ref={particlesRef}>
-      <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          count={particleCount}
-          array={positions}
-          itemSize={3}
-        />
-      </bufferGeometry>
-      <pointsMaterial size={0.05} color="#60a5fa" transparent opacity={0.6} />
-    </points>
-  );
+  return null;
 }
 
 export default function FuturisticHero() {
   return (
     <section className="relative overflow-hidden bg-[#02030a] text-white">
       <div className="absolute inset-0 opacity-95">
-        <Canvas camera={{ position: [0, 0, 10], fov: 34 }} shadows>
+        <Canvas camera={{ position: [0, 0, 10], fov: 34 }} gl={{ antialias: false }}>
           <fog attach="fog" args={['#02030a', 8, 18]} />
           <ambientLight intensity={0.35} />
           <directionalLight position={[4, 2, 6]} intensity={1.2} color="#9be4ff" />
           <pointLight position={[-4, -2, 2]} color="#22d3ee" intensity={1.5} />
           <pointLight position={[2.5, 1.3, 4.5]} color="#f472b6" intensity={0.9} />
           <FloatingShapes />
-          <FloatingParticles />
-          <Sparkles count={150} size={6} scale={18} color="#60a5fa" />
-          <Stars radius={120} depth={50} count={4000} factor={4} saturation={0.5} fade speed={0.2} />
-          <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.18} />
+          <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.05} />
           <Environment preset="night" />
         </Canvas>
       </div>
