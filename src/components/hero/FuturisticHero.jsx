@@ -26,7 +26,7 @@ function FloatingShapes() {
           onPointerOut={() => setHovered(null)}
           scale={hovered === 'torus' ? 1.2 : 1}
         >
-          <torusKnotGeometry args={[1.6, 0.28, 180, 22]} />
+          <torusKnotGeometry args={[1.6, 0.28, 100, 16]} />
           <MeshDistortMaterial
             color="#38bdf8"
             emissive="#0ea5e9"
@@ -49,7 +49,7 @@ function FloatingShapes() {
           onPointerOut={() => setHovered(null)}
           scale={hovered === 'icosa' ? 1.3 : 1}
         >
-          <icosahedronGeometry args={[0.5, 3]} />
+          <icosahedronGeometry args={[0.5, 1]} />
           <meshStandardMaterial
             color="#fb7185"
             emissive="#f472b6"
@@ -67,7 +67,7 @@ function FloatingShapes() {
           onPointerOut={() => setHovered(null)}
           scale={hovered === 'sphere' ? 1.4 : 1}
         >
-          <sphereGeometry args={[0.38, 64, 64]} />
+          <sphereGeometry args={[0.38, 32, 32]} />
           <meshStandardMaterial
             color="#7c3aed"
             emissive="#a855f7"
@@ -115,11 +115,11 @@ function FloatingShapes() {
 
       {/* Energy Rings */}
       <mesh position={[0, -2.8, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-        <ringGeometry args={[3.2, 4.4, 128]} />
+        <ringGeometry args={[3.2, 4.4, 64]} />
         <meshBasicMaterial color="#38bdf8" transparent opacity={0.22} />
       </mesh>
       <mesh position={[0, -2.85, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-        <ringGeometry args={[2.5, 3.15, 128]} />
+        <ringGeometry args={[2.5, 3.15, 64]} />
         <meshBasicMaterial color="#a855f7" transparent opacity={0.18} />
       </mesh>
     </group>
@@ -135,7 +135,7 @@ function FloatingParticles() {
     }
   });
 
-  const particleCount = 50;
+  const particleCount = 20;
   const positions = new Float32Array(particleCount * 3);
 
   for (let i = 0; i < particleCount; i++) {

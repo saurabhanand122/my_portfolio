@@ -45,7 +45,7 @@ const ProjectsSection = () => {
       title: "Portfolio Website",
       description: "This futuristic 3D portfolio website showcasing modern web development skills with interactive animations, 3D models, and responsive design.",
       liveUrl: "#",
-      codeUrl: "https://github.com/saurabhanand1202/portfolio",
+      codeUrl: "https://github.com/saurabhanand122/my_portfolio",
       tech: ["Next.js", "Three.js", "Framer Motion", "Tailwind"],
       screenshot: "/assets/images/portfolio.png",
       color: "from-orange-500 to-red-500",
@@ -107,6 +107,8 @@ const ProjectsSection = () => {
                     src={project.screenshot}
                     alt={`${project.title} screenshot`}
                     className="h-full w-full object-cover"
+                    width={400}
+                    height={192}
                     draggable="false"
                   />
                 </div>

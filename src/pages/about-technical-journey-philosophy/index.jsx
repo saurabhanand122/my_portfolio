@@ -5,21 +5,22 @@ import Header from '../../components/ui/Header';
 import AnimatedSection from '../../components/AnimatedSection';
 import ContactForm from '../../components/ContactForm';
 import StarBackground from '../../components/StarBackground';
-import PersonalIntro from './components/PersonalIntro';
-import CareerTimeline from './components/CareerTimeline';
-import ProjectsSection from '../../components/ProjectsSection';
-import SkillsMatrix from './components/SkillsMatrix';
-import ValuesSection from './components/ValuesSection';
-import BeyondCode from './components/BeyondCode';
 
-const Hero3D = dynamic(() => import('components/hero/FuturisticHero'), {
+const Hero3D = dynamic(() => import('../../components/hero/FuturisticHero'), {
   ssr: false,
   loading: () => (
     <div className="relative h-[calc(80vh)] min-h-[560px] bg-background" />
   ),
 });
 
-const Loader = dynamic(() => import('components/Loader'), {
+const PersonalIntro = dynamic(() => import('./components/PersonalIntro'), { ssr: false });
+const CareerTimeline = dynamic(() => import('./components/CareerTimeline'), { ssr: false });
+const ProjectsSection = dynamic(() => import('../../components/ProjectsSection'), { ssr: false });
+const SkillsMatrix = dynamic(() => import('./components/SkillsMatrix'), { ssr: false });
+const ValuesSection = dynamic(() => import('./components/ValuesSection'), { ssr: false });
+const BeyondCode = dynamic(() => import('./components/BeyondCode'), { ssr: false });
+
+const Loader = dynamic(() => import('../../components/Loader'), {
   ssr: false,
 });
 
@@ -29,7 +30,7 @@ const AboutTech = () => {
   useEffect(() => {
     const timer = window.setTimeout(() => {
       setIsLoading(false);
-    }, 1800);
+    }, 1000);
 
     return () => window.clearTimeout(timer);
   }, []);

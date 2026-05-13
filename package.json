@@ -29,6 +29,9 @@
       "last 1 safari version"
     ]
   },
+  "overrides": {
+    "three-mesh-bvh": "^0.8.3"
+  },
   "devDependencies": {
     "autoprefixer": "10.4.2",
     "postcss": "8.4.8",

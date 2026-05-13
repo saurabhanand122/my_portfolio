@@ -2,13 +2,14 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import { useRef, useMemo } from 'react';
 import * as THREE from 'three';
+import { memo } from 'react';
 
 function Stars() {
   const ref = useRef();
 
   const [sphere] = useMemo(() => {
-    const sphere = new Float32Array(5000 * 3);
-    for (let i = 0; i < 5000; i++) {
+    const sphere = new Float32Array(2000 * 3);
+    for (let i = 0; i < 2000; i++) {
       sphere[i * 3] = (Math.random() - 0.5) * 100;
       sphere[i * 3 + 1] = (Math.random() - 0.5) * 100;
       sphere[i * 3 + 2] = (Math.random() - 0.5) * 100;
@@ -29,7 +30,7 @@ function Stars() {
         <PointMaterial
           transparent
           color="#ffffff"
-          size={0.8}
+          size={0.5}
           sizeAttenuation={true}
           depthWrite={false}
           blending={THREE.AdditiveBlending}
@@ -39,7 +40,7 @@ function Stars() {
   );
 }
 
-export default function StarBackground() {
+export default memo(function StarBackground() {
   return (
     <div className="fixed inset-0 -z-10">
       <Canvas
@@ -51,4 +52,4 @@ export default function StarBackground() {
       </Canvas>
     </div>
   );
-}
+});
