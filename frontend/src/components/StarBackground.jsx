@@ -8,8 +8,8 @@ function Stars() {
   const ref = useRef();
 
   const [sphere] = useMemo(() => {
-    const sphere = new Float32Array(800 * 3);
-    for (let i = 0; i < 800; i++) {
+    const sphere = new Float32Array(400 * 3);
+    for (let i = 0; i < 400; i++) {
       sphere[i * 3] = (Math.random() - 0.5) * 100;
       sphere[i * 3 + 1] = (Math.random() - 0.5) * 100;
       sphere[i * 3 + 2] = (Math.random() - 0.5) * 100;

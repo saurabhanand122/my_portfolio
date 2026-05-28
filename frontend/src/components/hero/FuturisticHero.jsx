@@ -26,7 +26,7 @@ function FloatingShapes() {
           onPointerOut={() => setHovered(null)}
           scale={hovered === 'torus' ? 1.2 : 1}
         >
-          <torusKnotGeometry args={[1.6, 0.28, 50, 8]} />
+          <torusKnotGeometry args={[1.6, 0.28, 32, 6]} />
           <MeshDistortMaterial
             color="#38bdf8"
             emissive="#0ea5e9"
@@ -74,7 +74,7 @@ export default function FuturisticHero() {
   return (
     <section className="relative overflow-hidden bg-[#02030a] text-white">
       <div className="absolute inset-0 opacity-95">
-        <Canvas camera={{ position: [0, 0, 10], fov: 34 }} gl={{ antialias: false }}>
+        <Canvas camera={{ position: [0, 0, 10], fov: 34 }} gl={{ antialias: false }} dpr={[1, 1.5]}>
           <fog attach="fog" args={['#02030a', 8, 18]} />
           <ambientLight intensity={0.35} />
           <directionalLight position={[4, 2, 6]} intensity={1.2} color="#9be4ff" />

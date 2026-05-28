@@ -4,13 +4,16 @@ import { useEffect, useState } from 'react';
 import Header from '../../components/ui/Header';
 import AnimatedSection from '../../components/AnimatedSection';
 import ContactForm from '../../components/ContactForm';
-import StarBackground from '../../components/StarBackground';
 import PersonalIntro from './components/PersonalIntro';
 import CareerTimeline from './components/CareerTimeline';
 import ProjectsSection from '../../components/ProjectsSection';
 import SkillsMatrix from './components/SkillsMatrix';
 import ValuesSection from './components/ValuesSection';
 import BeyondCode from './components/BeyondCode';
+
+const StarBackground = dynamic(() => import('../../components/StarBackground'), {
+  ssr: false,
+});
 
 const Hero3D = dynamic(() => import('../../components/hero/FuturisticHero'), {
   ssr: false,
