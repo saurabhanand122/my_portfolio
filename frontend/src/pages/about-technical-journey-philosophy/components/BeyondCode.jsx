@@ -117,7 +117,7 @@ const BeyondCode = () => {
           {activities?.[activeTab]?.items?.map((item, index) => (
             <div
               key={index}
-              className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl overflow-hidden hover-lift transition-all duration-300 hover:shadow-brand"
+              className="bg-card border border-border rounded-xl overflow-hidden hover-lift transition-all duration-300 hover:shadow-brand"
             >
               <div className="relative overflow-hidden h-48">
                 <Image
@@ -148,59 +148,6 @@ const BeyondCode = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Call to Action */}
-        <div id="connect" className="mt-16 scroll-mt-20 text-center">
-          <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl p-8 max-w-4xl mx-auto">
-            <div className="flex items-center justify-center mb-6">
-              <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
-                <Icon name="MessageCircle" size={28} color="white" />
-              </div>
-            </div>
-            <h3 className="text-2xl font-bold text-foreground mb-4">
-              Let's Connect & Collaborate
-            </h3>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Whether you're interested in collaborating on a project, need mentorship, or just want to chat about technology and life, I'd love to hear from you.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <a
-                href="mailto:saurabh.anandofficial122@gmail.com"
-                className="flex items-center space-x-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover-lift transition-all duration-300 hover:shadow-brand"
-              >
-                <Icon name="Mail" size={20} />
-                <span>Gmail</span>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/saurabh-anand-2b5620279/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-2 px-6 py-3 bg-card border border-border text-foreground rounded-lg font-medium hover-lift transition-all duration-300 hover:bg-muted"
-              >
-                <Icon name="Linkedin" size={20} />
-                <span>LinkedIn</span>
-              </a>
-              <a
-                href="https://github.com/saurabhanand122"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-2 px-6 py-3 bg-card border border-border text-foreground rounded-lg font-medium hover-lift transition-all duration-300 hover:bg-muted"
-              >
-                <Icon name="Github" size={20} />
-                <span>GitHub</span>
-              </a>
-              <a
-                href="https://www.geeksforgeeks.org/profile/saurabhatweeknd"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-2 px-6 py-3 bg-card border border-border text-foreground rounded-lg font-medium hover-lift transition-all duration-300 hover:bg-muted"
-              >
-                <Icon name="Code2" size={20} />
-                <span>GFG</span>
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </section>

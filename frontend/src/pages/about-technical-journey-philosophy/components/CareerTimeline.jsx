@@ -111,7 +111,7 @@ const CareerTimeline = () => {
                   }`}
                 >
                   <div
-                    className={`bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 shadow-brand hover-lift cursor-pointer transition-all duration-300 ${
+                    className={`bg-card border border-border rounded-xl p-6 shadow-brand hover-lift cursor-pointer transition-all duration-300 ${
                       activeItem === index ? 'ring-2 ring-primary shadow-brand-lg' : ''
                     }`}
                     onClick={() => setActiveItem(activeItem === index ? -1 : index)}

@@ -7,7 +7,7 @@ const ValuesSection = () => {
       title: "Continuous Learning",
       description: "Technology evolves rapidly, and so do I. I dedicate time each week to learning new technologies, reading research papers, and experimenting with emerging tools.",
       icon: "BookOpen",
-      color: "from-blue-500 to-cyan-500",
+      color: "from-primary to-accent",
       examples: [
         "Weekly tech newsletter subscriptions",
         "Monthly side projects with new tech",
@@ -93,7 +93,7 @@ const ValuesSection = () => {
           {values?.map((value, index) => (
             <div
               key={index}
-              className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-8 hover-lift transition-all duration-300 hover:shadow-brand"
+              className="bg-card border border-border rounded-xl p-8 hover-lift transition-all duration-300 hover:shadow-brand"
             >
               <div className="flex items-start space-x-6">
                 <div className={`w-16 h-16 bg-gradient-to-br ${value?.color} rounded-xl flex items-center justify-center flex-shrink-0`}>

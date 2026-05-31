@@ -72,21 +72,6 @@ function FloatingCluster() {
   );
 }
 
-export default function Section3DAccent({ small = false }) {
-  return (
-    <div className={`pointer-events-none absolute inset-0 ${small ? 'opacity-60' : 'opacity-75'}`}>
-      <Canvas
-        camera={{ position: [0, 0, 6], fov: 30 }}
-        gl={{ alpha: true, antialias: true }}
-        style={{ position: 'absolute', inset: 0 }}
-      >
-        <ambientLight intensity={0.45} />
-        <directionalLight position={[4, 5, 5]} intensity={1.1} color="#8ecdf2" />
-        <pointLight position={[-4, -2, 1]} intensity={0.6} color="#fb7185" />
-        <FloatingCluster />
-        <Sparkles count={80} size={3} scale={10} color="#38bdf8" />
-        <OrbitControls enabled={false} />
-      </Canvas>
-    </div>
-  );
+export default function Section3DAccent() {
+  return null;
 }

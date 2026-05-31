@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import Icon from './AppIcon';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +10,30 @@ const ContactForm = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+
+  const contactLinks = [
+    {
+      name: 'Gmail',
+      href: 'mailto:saurabh.anandofficial122@gmail.com',
+      icon: 'Mail',
+      primary: true
+    },
+    {
+      name: 'LinkedIn',
+      href: 'https://www.linkedin.com/in/saurabh-anand-2b5620279/',
+      icon: 'Linkedin'
+    },
+    {
+      name: 'GitHub',
+      href: 'https://github.com/saurabhanand122',
+      icon: 'Github'
+    },
+    {
+      name: 'GFG',
+      href: 'https://www.geeksforgeeks.org/profile/saurabhatweeknd',
+      icon: 'Code2'
+    }
+  ];
 
   const handleChange = (e) => {
     setFormData({
@@ -56,10 +81,10 @@ const ContactForm = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
             Let's Connect
           </h2>
-          <p className="text-lg text-slate-300 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Ready to collaborate on something amazing? I'd love to hear from you.
           </p>
         </motion.div>
@@ -69,7 +94,7 @@ const ContactForm = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8"
+          className="bg-card border border-border rounded-2xl p-8 shadow-brand-lg"
         >
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
@@ -79,7 +104,7 @@ const ContactForm = () => {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 viewport={{ once: true }}
               >
-                <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-muted-foreground mb-2">
                   Name
                 </label>
                 <input
@@ -89,7 +114,7 @@ const ContactForm = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300"
+                  className="w-full px-4 py-3 bg-surface border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
                   placeholder="Your name"
                 />
               </motion.div>
@@ -100,7 +125,7 @@ const ContactForm = () => {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 viewport={{ once: true }}
               >
-                <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-muted-foreground mb-2">
                   Email
                 </label>
                 <input
@@ -110,7 +135,7 @@ const ContactForm = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300"
+                  className="w-full px-4 py-3 bg-surface border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
                   placeholder="your.email@example.com"
                 />
               </motion.div>
@@ -122,7 +147,7 @@ const ContactForm = () => {
               transition={{ duration: 0.6, delay: 0.5 }}
               viewport={{ once: true }}
             >
-              <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-2">
+              <label htmlFor="message" className="block text-sm font-medium text-muted-foreground mb-2">
                 Message
               </label>
               <textarea
@@ -132,7 +157,7 @@ const ContactForm = () => {
                 onChange={handleChange}
                 required
                 rows={6}
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300 resize-none"
+                className="w-full px-4 py-3 bg-surface border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 resize-none"
                 placeholder="Tell me about your project or just say hello..."
               />
             </motion.div>
@@ -147,7 +172,7 @@ const ContactForm = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-lg hover:from-cyan-400 hover:to-blue-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-slate-900 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105 transform"
+                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary to-accent text-white font-semibold rounded-lg hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105 transform"
               >
                 {isSubmitting ? (
                   <>
@@ -169,14 +194,39 @@ const ContactForm = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 className={`text-center p-4 rounded-lg ${
                   submitStatus.type === 'success'
-                    ? 'bg-green-500/20 text-green-300 border border-green-500/30'
-                    : 'bg-red-500/20 text-red-300 border border-red-500/30'
+                    ? 'bg-success/20 text-success border border-success/30'
+                    : 'bg-destructive/20 text-destructive border border-destructive/30'
                 }`}
               >
                 {submitStatus.message}
               </motion.div>
             )}
           </form>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.25 }}
+          viewport={{ once: true }}
+          className="mt-10 flex flex-wrap justify-center gap-4"
+        >
+          {contactLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              target={link.href.startsWith('http') ? '_blank' : undefined}
+              rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+              className={`flex min-w-[150px] items-center justify-center gap-3 rounded-xl border px-7 py-4 text-lg font-semibold transition-all duration-300 hover-lift ${
+                link.primary
+                  ? 'border-primary bg-primary text-primary-foreground shadow-brand hover:shadow-brand-lg'
+                  : 'border-primary/25 bg-primary/5 text-foreground hover:border-primary/50 hover:bg-primary/10'
+              }`}
+            >
+              <Icon name={link.icon} size={22} />
+              <span>{link.name}</span>
+            </a>
+          ))}
         </motion.div>
       </div>
     </section>

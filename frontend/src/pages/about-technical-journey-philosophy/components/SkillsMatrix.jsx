@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Icon from '../../../components/AppIcon';
-import Section3DAccent from '../../../components/hero/Section3DAccent';
 
 const SkillsMatrix = () => {
   const [activeCategory, setActiveCategory] = useState('frontend');
@@ -10,7 +9,7 @@ const SkillsMatrix = () => {
     programmingConcept: {
       title: "Programming & Concepts",
       icon: "Monitor",
-      color: "from-blue-500 to-cyan-500",
+      color: "from-primary to-accent",
       skills: [
         { name: "C / C++", level: 85, experience: "3+ years", description: "OOP, data structures, algorithms" },
         { name: "Java", level: 82, experience: "3+ years", description: "OOP, REST APIs, Spring Boot basics, MVC concepts" },
@@ -23,7 +22,7 @@ const SkillsMatrix = () => {
     frontend: {
       title: "Web Technologies",
       icon: "Monitor",
-      color: "from-blue-500 to-cyan-500",
+      color: "from-primary to-accent",
       skills: [
         { name: "React", level: 95, experience: "5+ years", description: "Advanced hooks, context, performance optimization" },
         { name: "Next.js", level: 90, experience: "3+ years", description: "SSR, SSG, API routes, deployment optimization" },
@@ -90,7 +89,6 @@ const SkillsMatrix = () => {
 
   return (
     <section id="skills" className="relative overflow-hidden scroll-mt-20 py-20 bg-background">
-      <Section3DAccent small />
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
@@ -137,7 +135,7 @@ const SkillsMatrix = () => {
           {skillCategories?.[activeCategory]?.skills?.map((skill, index) => (
             <motion.div
               key={index}
-              className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 hover-lift transition-all duration-300 hover:shadow-brand cursor-pointer"
+              className="bg-card border border-border rounded-xl p-6 hover-lift transition-all duration-300 hover:shadow-brand cursor-pointer"
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0 }
@@ -192,7 +190,7 @@ const SkillsMatrix = () => {
               <div className="text-sm text-muted-foreground">Expert Level</div>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-accent to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-3">
+              <div className="w-16 h-16 bg-gradient-to-br from-accent to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3">
                 <Icon name="TrendingUp" size={24} color="white" />
               </div>
               <div className="text-2xl font-bold text-foreground">8</div>
@@ -206,7 +204,7 @@ const SkillsMatrix = () => {
               <div className="text-sm text-muted-foreground">Intermediate Level</div>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
+              <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-3">
                 <Icon name="BookOpen" size={24} color="white" />
               </div>
               <div className="text-2xl font-bold text-foreground">8+</div>

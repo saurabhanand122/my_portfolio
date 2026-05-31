@@ -6,55 +6,103 @@
 
 @layer base {
   :root {
-    /* Background Colors */
-    --color-background: #02030a; /* ultra-dark */
-    --color-surface: #06101d; /* deep night */
-    --color-card: #0f172a; /* dark panel */
-    --color-card-foreground: #e2e8f0; /* light text */
-    --color-popover: #0b1120; /* darker modal */
-    --color-popover-foreground: #f8fafc; /* white */
+    /* Default Dark Mode Background Colors */
+    --color-background: #050103; /* rich black-red */
+    --color-surface: #0f0307; /* deep burgundy night */
+    --color-card: #16070c; /* dark crimson panel */
+    --color-card-foreground: #fbcfe8; /* light text */
+    --color-popover: #0f0307; /* darker modal */
+    --color-popover-foreground: #fff1f2; /* white */
     
     /* Text Colors */
-    --color-foreground: #f8fafc; /* almost white */
-    --color-muted: #0f172a; /* midnight */
-    --color-muted-foreground: #94a3b8; /* sky grey */
+    --color-foreground: #fff1f2; /* almost white */
+    --color-muted: #16070c; /* midnight */
+    --color-muted-foreground: #fda4af; /* rose grey */
     
     /* Brand Colors */
-    --color-primary: #38bdf8; /* cyan shimmer */
-    --color-primary-foreground: #02030a; /* dark */
-    --color-secondary: #a855f7; /* violet */
+    --color-primary: #ff2a5f; /* neon crimson shimmer */
+    --color-primary-foreground: #ffffff; /* white */
+    --color-secondary: #e11d48; /* crimson */
     --color-secondary-foreground: #ffffff; /* white */
     
     /* Interactive Colors */
-    --color-accent: #22d3ee; /* blue */
-    --color-accent-foreground: #02030a; /* dark */
+    --color-accent: #ff9f1c; /* cyber amber gold */
+    --color-accent-foreground: #050103; /* dark */
     
     /* Form Elements */
-    --color-border: rgba(148, 163, 184, 0.18); /* soft cyan */
-    --color-input: #0b1220; /* deep field */
-    --color-ring: #38bdf8; /* cyan */
+    --color-border: rgba(255, 42, 95, 0.15); /* soft crimson */
+    --color-input: #0f0307; /* deep field */
+    --color-ring: #ff2a5f; /* crimson */
     
     /* Status Colors */
-    --color-success: #34d399; /* mint */
-    --color-success-foreground: #02030a; /* dark */
+    --color-success: #10b981; /* green */
+    --color-success-foreground: #050103; /* dark */
     --color-warning: #f59e0b; /* amber */
-    --color-warning-foreground: #02030a; /* dark */
-    --color-error: #fb7185; /* rose */
-    --color-error-foreground: #02030a; /* dark */
-    --color-destructive: #fb7185; /* rose */
-    --color-destructive-foreground: #02030a; /* dark */
+    --color-warning-foreground: #050103; /* dark */
+    --color-error: #f43f5e; /* rose */
+    --color-error-foreground: #050103; /* dark */
+    --color-destructive: #f43f5e; /* rose */
+    --color-destructive-foreground: #050103; /* dark */
     
     /* Additional Brand Colors */
-    --color-trust: #60a5fa; /* bright blue */
-    --color-trust-foreground: #02030a; /* dark */
-    --color-conversion: #2dd4bf; /* teal */
-    --color-conversion-foreground: #02030a; /* dark */
+    --color-trust: #fb7185; /* coral */
+    --color-trust-foreground: #050103; /* dark */
+    --color-conversion: #ff2a5f; /* crimson */
+    --color-conversion-foreground: #050103; /* dark */
     
     /* Spacing and Layout */
     --radius: 0.75rem;
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
-    --shadow: 0 20px 80px -30px rgba(56, 189, 248, 0.45);
-    --shadow-lg: 0 30px 120px -30px rgba(56, 189, 248, 0.35);
+    --shadow: 0 20px 80px -30px rgba(255, 42, 95, 0.35);
+    --shadow-lg: 0 30px 120px -30px rgba(255, 42, 95, 0.25);
+  }
+
+  /* Light Mode Overrides */
+  .light {
+    /* Background Colors */
+    --color-background: #fffafa; /* off-white with rose tint */
+    --color-surface: #ffebee; /* light rose surface */
+    --color-card: #ffffff; /* pure white card */
+    --color-card-foreground: #374151; /* dark slate text */
+    --color-popover: #ffffff;
+    --color-popover-foreground: #374151;
+    
+    /* Text Colors */
+    --color-foreground: #1f2937; /* dark slate text */
+    --color-muted: #ffebee;
+    --color-muted-foreground: #6b7280; /* grey text */
+    
+    /* Brand Colors */
+    --color-primary: #e11d48; /* crimson red */
+    --color-primary-foreground: #ffffff;
+    --color-secondary: #be123c; /* deeper crimson */
+    --color-secondary-foreground: #ffffff;
+    
+    /* Interactive Colors */
+    --color-accent: #d97706; /* amber gold */
+    --color-accent-foreground: #ffffff;
+    
+    /* Form Elements */
+    --color-border: rgba(225, 29, 72, 0.15); /* soft crimson */
+    --color-input: #ffffff;
+    --color-ring: #e11d48;
+    
+    /* Status Colors */
+    --color-success: #059669;
+    --color-success-foreground: #ffffff;
+    --color-warning: #d97706;
+    --color-warning-foreground: #ffffff;
+    --color-error: #e11d48;
+    --color-error-foreground: #ffffff;
+    --color-destructive: #e11d48;
+    --color-destructive-foreground: #ffffff;
+    
+    /* Additional Brand Colors */
+    --color-trust: #e11d48;
+    --color-conversion: #e11d48;
+    
+    --shadow: 0 10px 40px -15px rgba(225, 29, 72, 0.12);
+    --shadow-lg: 0 20px 60px -20px rgba(225, 29, 72, 0.15);
   }
 
   * {
@@ -65,11 +113,12 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
     min-height: 100vh;
-    background-image: radial-gradient(circle at top, rgba(56,189,248,0.06), transparent 26%),
-      radial-gradient(circle at 20% 20%, rgba(168,85,247,0.08), transparent 18%),
-      radial-gradient(circle at 85% 10%, rgba(14,165,233,0.1), transparent 18%);
+    background-image: radial-gradient(circle at top, rgba(255,42,95,0.06), transparent 26%),
+      radial-gradient(circle at 20% 20%, rgba(255,159,28,0.08), transparent 18%),
+      radial-gradient(circle at 85% 10%, rgba(225,29,72,0.1), transparent 18%);
     background-attachment: fixed;
-    background-color: #02030a;
+    background-color: var(--color-background);
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   /* Typography Hierarchy */
