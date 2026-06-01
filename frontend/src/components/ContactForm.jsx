@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Icon from './AppIcon';
 
+const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, '');
+const contactApiUrl = apiBaseUrl ? `${apiBaseUrl}/api/contact` : '/api/contact';
+
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -48,7 +51,7 @@ const ContactForm = () => {
     setSubmitStatus(null);
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch(contactApiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
