@@ -49,23 +49,32 @@ const PersonalIntro = () => {
 
           {/* Image */}
           <div className="relative">
-            <div className="relative z-10">
-              <div className="w-full max-w-md mx-auto">
-                <div className="relative overflow-hidden rounded-2xl shadow-brand-lg">
-                  <Image
-                    src="/assets/images/my-image.png"
-                    alt="Saurabh Anand - Full-Stack Developer"
-                    className="w-full h-96 object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
-                </div>
+            <div className="relative z-10 mx-auto grid w-full max-w-xl gap-5 sm:grid-cols-[minmax(0,1fr)_10rem] sm:items-end">
+              <div className="relative overflow-hidden rounded-2xl border border-border bg-card shadow-brand-lg">
+                <Image
+                  src="/assets/images/saurabh-professional-headshot.png"
+                  alt="Professional headshot of Saurabh Anand"
+                  className="h-[32rem] w-full object-cover object-[center_18%]"
+                  width={900}
+                  height={1400}
+                  sizes="(min-width: 1024px) 448px, 100vw"
+                  priority
+                />
+                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background/70 to-transparent"></div>
+              </div>
+
+              <div className="relative overflow-hidden rounded-xl border border-border bg-card shadow-brand sm:-ml-14 sm:mb-8">
+                <Image
+                  src="/assets/images/saurabh-professional-portrait.png"
+                  alt="Saurabh Anand in formal business attire"
+                  className="h-44 w-full object-cover object-[center_26%] sm:h-56"
+                  width={900}
+                  height={500}
+                  sizes="(min-width: 640px) 160px, 100vw"
+                />
               </div>
             </div>
-            
-            {/* Floating Elements */}
-            <div className="absolute -top-4 -right-4 w-20 h-20 bg-accent/20 rounded-full blur-xl"></div>
-            <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-primary/20 rounded-full blur-lg"></div>
-            
+
             {/* Code Snippet Decoration */}
             <div className="absolute top-8 -left-8 bg-card border border-border rounded-lg p-4 shadow-brand hidden lg:block">
               <div className="flex items-center space-x-2 mb-2">

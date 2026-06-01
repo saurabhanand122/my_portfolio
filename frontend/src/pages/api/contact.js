@@ -21,7 +21,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const client = await clientPromise;
+    const client = await clientPromise();
     const dbName = process.env.MONGODB_DB || 'portfolio-messages';
     const db = client.db(dbName);
     const collection = db.collection('contacts');

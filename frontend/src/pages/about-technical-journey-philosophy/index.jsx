@@ -9,6 +9,7 @@ import CareerTimeline from './components/CareerTimeline';
 import ProjectsSection from '../../components/ProjectsSection';
 import SkillsMatrix from './components/SkillsMatrix';
 import BeyondCode from './components/BeyondCode';
+import ScrollDownButton from '../../components/ScrollDownButton';
 import Footer from '../../components/ui/Footer';
 
 const StarBackground = dynamic(() => import('../../components/StarBackground'), {
@@ -54,6 +55,7 @@ const AboutTech = () => {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(168,85,247,0.12),_transparent_35%),radial-gradient(circle_at_20%_20%,_rgba(16,185,129,0.08),_transparent_18%),radial-gradient(circle_at_80%_10%,_rgba(139,92,246,0.08),_transparent_16%)]" />
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),transparent_18%)]" />
         <Header />
+        <ScrollDownButton />
 
         <main className="relative pt-16">
           <Hero3D />

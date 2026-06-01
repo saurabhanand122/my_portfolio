@@ -22,7 +22,6 @@ const navigationItems = [
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [theme, setTheme] = useState('dark');
   const [mounted, setMounted] = useState(false);
   const router = useRouter();
@@ -34,15 +33,6 @@ const Header = () => {
     setTheme(savedTheme);
     document.documentElement.classList.toggle('light', savedTheme === 'light');
     document.documentElement.classList.toggle('dark', savedTheme !== 'light');
-
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 8);
-    };
-
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
@@ -127,11 +117,7 @@ const Header = () => {
   return (
     <>
       <header
-        className={`fixed left-0 right-0 top-0 z-[9999] h-16 border-b transition-colors duration-300 ${
-          isScrolled
-            ? 'border-border bg-background/95 shadow-md backdrop-blur-xl'
-            : 'border-border/50 bg-background/90 backdrop-blur-xl'
-        }`}
+        className="fixed left-0 right-0 top-0 z-[9999] h-16 border-b border-border bg-background/95 shadow-md backdrop-blur-xl"
       >
         <div className="flex h-full w-full items-center justify-between px-4 sm:px-6 lg:px-8">
           <Link

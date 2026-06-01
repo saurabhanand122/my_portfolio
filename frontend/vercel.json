@@ -1,3 +1,11 @@
 {
-  "framework": "nextjs"
+  "version": 2,
+  "framework": "nextjs",
+  "installCommand": "npm install",
+  "buildCommand": "npm run build",
+  "functions": {
+    "src/pages/api/contact.js": {
+      "maxDuration": 10
+    }
+  }
 }
