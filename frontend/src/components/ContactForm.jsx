@@ -51,7 +51,28 @@ const ContactForm = () => {
     setSubmitStatus(null);
 
     try {
-      const response = await fetch(contactApiUrl, {
+      // 1. Prepare EmailJS send parameters and API call
+      const emailjsPromise = fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          service_id: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'service_hxwzlmq',
+          template_id: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'template_5oh9udo',
+          user_id: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'D0Jls9_8cwJFZjynu',
+          template_params: {
+            from_name: formData.name,
+            from_email: formData.email,
+            message: formData.message,
+            name: formData.name,
+            email: formData.email,
+          },
+        }),
+      });
+
+      // 2. Prepare database backup send
+      const dbPromise = fetch(contactApiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -59,16 +80,55 @@ const ContactForm = () => {
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
+      // Run both in parallel for optimal performance
+      const [emailjsResult, dbResult] = await Promise.allSettled([
+        emailjsPromise,
+        dbPromise,
+      ]);
 
-      if (response.ok) {
-        setSubmitStatus({ type: 'success', message: data.message });
+      const emailjsSuccess = emailjsResult.status === 'fulfilled' && emailjsResult.value.ok;
+      
+      let dbSuccess = false;
+      let dbMessage = '';
+      if (dbResult.status === 'fulfilled') {
+        dbSuccess = dbResult.value.ok;
+        try {
+          const data = await dbResult.value.json();
+          dbMessage = data.message;
+        } catch (_) {}
+      }
+
+      if (emailjsSuccess) {
+        setSubmitStatus({ 
+          type: 'success', 
+          message: 'Thank you! Your message has been sent successfully.' 
+        });
+        setFormData({ name: '', email: '', message: '' });
+      } else if (dbSuccess) {
+        // If email delivery fails but it was successfully saved to MongoDB, we still got it!
+        setSubmitStatus({ 
+          type: 'success', 
+          message: dbMessage || 'Thank you! Your message has been received.' 
+        });
         setFormData({ name: '', email: '', message: '' });
       } else {
-        setSubmitStatus({ type: 'error', message: data.message });
+        // Both failed
+        if (emailjsResult.status === 'fulfilled' && !emailjsResult.value.ok) {
+          try {
+            const errText = await emailjsResult.value.text();
+            console.error('EmailJS Error details:', errText);
+          } catch (_) {}
+        }
+        setSubmitStatus({ 
+          type: 'error', 
+          message: 'Failed to send message. Please check your network or try again later.' 
+        });
       }
     } catch (error) {
-      setSubmitStatus({ type: 'error', message: 'Failed to send message. Please try again.' });
+      setSubmitStatus({ 
+        type: 'error', 
+        message: 'An unexpected error occurred. Please try again.' 
+      });
     } finally {
       setIsSubmitting(false);
     }
