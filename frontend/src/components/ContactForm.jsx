@@ -4,6 +4,25 @@ import Icon from './AppIcon';
 
 const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, '');
 const contactApiUrl = apiBaseUrl ? `${apiBaseUrl}/api/contact` : '/api/contact';
+const emailjsServiceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'service_g42hw1f';
+const emailjsTemplateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'template_5oh9udo';
+const emailjsAutoReplyTemplateId =
+  process.env.NEXT_PUBLIC_EMAILJS_AUTO_REPLY_TEMPLATE_ID || 'template_hp9ugjr';
+const emailjsPublicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'D0Jls9_8cwJFZjynu';
+
+const sendEmailjsTemplate = (templateId, templateParams) =>
+  fetch('https://api.emailjs.com/api/v1.0/email/send', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      service_id: emailjsServiceId,
+      template_id: templateId,
+      user_id: emailjsPublicKey,
+      template_params: templateParams,
+    }),
+  });
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -51,27 +70,16 @@ const ContactForm = () => {
     setSubmitStatus(null);
 
     try {
-      // 1. Prepare EmailJS send parameters and API call
-      const emailjsPromise = fetch('https://api.emailjs.com/api/v1.0/email/send', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          service_id: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'service_hxwzlmq',
-          template_id: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'template_5oh9udo',
-          user_id: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'D0Jls9_8cwJFZjynu',
-          template_params: {
-            from_name: formData.name,
-            from_email: formData.email,
-            message: formData.message,
-            name: formData.name,
-            email: formData.email,
-          },
-        }),
-      });
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        name: formData.name,
+        email: formData.email,
+      };
 
-      // 2. Prepare database backup send
+      const notificationPromise = sendEmailjsTemplate(emailjsTemplateId, templateParams);
+      const autoReplyPromise = sendEmailjsTemplate(emailjsAutoReplyTemplateId, templateParams);
       const dbPromise = fetch(contactApiUrl, {
         method: 'POST',
         headers: {
@@ -80,13 +88,16 @@ const ContactForm = () => {
         body: JSON.stringify(formData),
       });
 
-      // Run both in parallel for optimal performance
-      const [emailjsResult, dbResult] = await Promise.allSettled([
-        emailjsPromise,
+      const [notificationResult, autoReplyResult, dbResult] = await Promise.allSettled([
+        notificationPromise,
+        autoReplyPromise,
         dbPromise,
       ]);
 
-      const emailjsSuccess = emailjsResult.status === 'fulfilled' && emailjsResult.value.ok;
+      const notificationSuccess =
+        notificationResult.status === 'fulfilled' && notificationResult.value.ok;
+      const autoReplySuccess =
+        autoReplyResult.status === 'fulfilled' && autoReplyResult.value.ok;
       
       let dbSuccess = false;
       let dbMessage = '';
@@ -98,7 +109,11 @@ const ContactForm = () => {
         } catch (_) {}
       }
 
-      if (emailjsSuccess) {
+      if (!autoReplySuccess) {
+        console.error('EmailJS auto-reply failed:', autoReplyResult);
+      }
+
+      if (notificationSuccess) {
         setSubmitStatus({ 
           type: 'success', 
           message: 'Thank you! Your message has been sent successfully.' 
@@ -112,10 +127,9 @@ const ContactForm = () => {
         });
         setFormData({ name: '', email: '', message: '' });
       } else {
-        // Both failed
-        if (emailjsResult.status === 'fulfilled' && !emailjsResult.value.ok) {
+        if (notificationResult.status === 'fulfilled' && !notificationResult.value.ok) {
           try {
-            const errText = await emailjsResult.value.text();
+            const errText = await notificationResult.value.text();
             console.error('EmailJS Error details:', errText);
           } catch (_) {}
         }
