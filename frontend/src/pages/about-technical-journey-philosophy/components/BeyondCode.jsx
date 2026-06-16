@@ -14,22 +14,22 @@ const BeyondCode = () => {
           title: "GitHub Contributor",
           description: "Actively contributing to open source projects — fixing bugs, improving documentation, and submitting PRs. Every contribution is a chance to learn from world-class codebases.",
           metrics: "2.5K+ commits, 150+ contributors",
-          image: "https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=400&h=250&fit=crop",
+          image: "/assets/images/github-contributor-ai.png",
           tags: ["Git", "JavaScript", "React"]
         },
         {
           title: "Personal Projects",
           description: "Shipping side projects and making them open source. I believe in building in public — sharing my process, mistakes, and learnings so others can benefit too.",
           metrics: "Building & sharing in public",
-          image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=250&fit=crop",
+          image: "/assets/images/personal-projects-ai.png",
           tags: ["Node.js", "TypeScript", "Open Source"]
         },
         {
           title: "Community Learner",
           description: "Engaging with the developer community on GitHub, reading issues, reviewing others' code, and absorbing best practices from experienced engineers around the world.",
           metrics: "Growing every day",
-          image: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=400&h=250&fit=crop",
-          tags: ["Community", "Code Review","Learning"]
+          image: "/assets/images/community-learner-ai.png",
+          tags: ["Community", "Code Review", "Learning"]
         }
       ]
     },
@@ -41,14 +41,14 @@ const BeyondCode = () => {
           title: "Peer Mentor",
           description: "Helping classmates and online peers debug code, understand concepts, and build their first projects. Explaining things clearly has sharpened my own understanding too.",
           metrics: "Helping fellow students",
-          image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=250&fit=crop",
+          image: "/assets/images/peer-mentor-ai.png",
           tags: ["Mentoring", "Skill Development", "Communication"]
         },
         {
           title: "Knowledge Sharer",
           description: "Writing short tutorials, leaving detailed answers on forums, and documenting what I learn. The best way to truly understand something is to teach it to someone else.",
           metrics: "Writing & explaining concepts",
-          image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400&h=250&fit=crop",
+          image: "/assets/images/knowledge-sharer-ai.png",
           tags: ["Stack Overflow", "Technical Writing", "Full-Stack"]
         }
       ]
@@ -61,21 +61,21 @@ const BeyondCode = () => {
           title: "Music",
           description: "Music is where my creativity lives outside of code. Whether I'm deep in lo-fi beats while debugging or exploring new genres on a late night — music shapes how I think and feel. There's a certain art to a great track that mirrors writing clean, expressive code.",
           metrics: "My creative fuel & escape",
-          image: "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=400&h=250&fit=crop",
+          image: "/assets/images/music-interest-ai.png",
           tags: ["Lo-fi", "Meditation", "Creativity"]
         },
         {
           title: "Movies",
           description: "Films are a huge part of how I see the world creatively. The art direction, world-building, and character design in great films inspires the way I approach UI and user experience — every frame is intentional, and so should every interface be.",
-          metrics: "5.12a grade, 3 years experience",
-          image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&h=250&fit=crop",
+          metrics: "Cinematic inspiration & UI ideas",
+          image: "/assets/images/movies-interest-ai.png",
           tags: ["Art Direction", "World-building", "Visual Design"]
         },
         {
           title: "Gaming ",
           description: "Gaming taught me how to think in systems, stay persistent through hard challenges, and appreciate great UX design. I love games with deep storytelling and clever mechanics — the same things I chase when building software.",
           metrics: "Strategy, story & problem-solving",
-          image: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=250&fit=crop",
+          image: "/assets/images/gaming-interest-ai.png",
           tags: ["Strategy", "Storytelling", "Problem Solving"]
         }
       ]

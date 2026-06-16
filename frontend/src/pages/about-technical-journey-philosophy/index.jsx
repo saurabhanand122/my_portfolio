@@ -46,6 +46,7 @@ const AboutTech = () => {
           name="description"
           content="Discover the technical journey and values that drive Saurabh Anand's approach to full-stack development and digital experience architecture."
         />
+        <link rel="icon" type="image/png" href="/assets/images/logo.png" />
       </Head>
 
       {isLoading && <Loader />}

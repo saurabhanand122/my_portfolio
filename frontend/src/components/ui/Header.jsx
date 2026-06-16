@@ -125,9 +125,8 @@ const Header = () => {
             className="flex min-w-0 items-center gap-3"
             onClick={closeMenu}
           >
-            <span className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent shadow-brand">
-              <Icon name="Code2" size={20} color="white" strokeWidth={2.5} />
-              <span className="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-accent" />
+            <span className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl overflow-hidden shadow-[0_0_15px_rgba(255,42,95,0.25)] border-2 border-primary bg-card hover:scale-105 hover:border-accent hover:shadow-[0_0_20px_rgba(255,159,28,0.4)] transition-all duration-300">
+              <img src="/assets/images/logo.png" alt="Saurabh Anand Logo" className="h-full w-full object-cover scale-110" />
             </span>
             <span className="hidden min-w-0 sm:block">
               <span className="block truncate text-lg font-bold leading-tight text-foreground">

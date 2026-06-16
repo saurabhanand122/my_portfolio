@@ -7,55 +7,55 @@ const SkillsMatrix = () => {
 
   const skillCategories = {
     programmingConcept: {
-      title: "Programming & Concepts",
+      title: "Languages & Concepts",
       icon: "Monitor",
       color: "from-primary to-accent",
       skills: [
-        { name: "C / C++", level: 85, experience: "3+ years", description: "OOP, data structures, algorithms" },
-        { name: "Java", level: 82, experience: "3+ years", description: "OOP, REST APIs, Spring Boot basics, MVC concepts" },
-        { name: "Python", level: 80, experience: "2+ years", description: "Scripting, AI/ML basics, data processing" },
-        { name: "JavaScript (ES6+)", level: 80, experience: "3+ years", description: "ES6+, async patterns, frontend interactivity" },
-        { name: "DSA", level: 85, experience: "3+ years", description: "Arrays, trees, graphs, problem-solving" },
-        { name: "SQL", level: 80, experience: "2+ years", description: "Queries, joins, schema design, MSSQL fundamentals" }
+        { name: "C++", level: 85, experience: "3+ years", description: "OOP, logic building, memory management" },
+        { name: "Java", level: 82, experience: "3+ years", description: "OOP, MVC patterns, REST API logic" },
+        { name: "JavaScript", level: 85, experience: "3+ years", description: "ES6+, async/await, DOM manipulation" },
+        { name: "Python", level: 80, experience: "2+ years", description: "Scripting, automation, data manipulation" },
+        { name: "DSA", level: 85, experience: "3+ years", description: "Data structures, algorithmic problem-solving" },
+        { name: "Core CS Concepts", level: 82, experience: "3+ years", description: "OOP, DBMS, Operating Systems, Computer Networks" }
       ]
     },
     frontend: {
-      title: "Web Technologies",
+      title: "Frontend Technologies",
       icon: "Monitor",
       color: "from-primary to-accent",
       skills: [
-        { name: "React", level: 95, experience: "5+ years", description: "Advanced hooks, context, performance optimization" },
-        { name: "Next.js", level: 90, experience: "3+ years", description: "SSR, SSG, API routes, deployment optimization" },
-        { name: "TypeScript", level: 88, experience: "4+ years", description: "Advanced types, generics, utility types" },
-        { name: "Tailwind CSS", level: 92, experience: "3+ years", description: "Custom components, design systems" },
-        { name: "JavaScript (ES6+)", level: 95, experience: "8+ years", description: "Async/await, modules, advanced patterns" },
-        { name: "HTML5 & CSS3", level: 98, experience: "8+ years", description: "Semantic markup, animations, responsive design" }
+        { name: "React.js", level: 92, experience: "3+ years", description: "Hooks, state management, component tree" },
+        { name: "Next.js", level: 90, experience: "2+ years", description: "SSR, SSG, API routes, layout management" },
+        { name: "Angular", level: 75, experience: "1+ year", description: "Components, modules, directives" },
+        { name: "Tailwind CSS", level: 92, experience: "3+ years", description: "Utility-first design, custom configurations" },
+        { name: "Bootstrap", level: 88, experience: "3+ years", description: "Responsive grid layout, UI kits" },
+        { name: "CSS3 & HTML5", level: 92, experience: "4+ years", description: "Flexbox, Grid, animations, semantic structures" }
       ]
     },
     backend: {
-      title: "Backend Development",
+      title: "Backend & Databases",
       icon: "Server",
       color: "from-green-500 to-teal-500",
       skills: [
-        { name: "Node.js", level: 90, experience: "5+ years", description: "Express, Fastify, microservices architecture" },
-        { name: "Python", level: 85, experience: "3+ years", description: "Django, FastAPI, data processing" },
-        { name: "PostgreSQL", level: 88, experience: "4+ years", description: "Complex queries, optimization, migrations" },
-        { name: "MongoDB", level: 85, experience: "4+ years", description: "Aggregation, indexing, schema design" },
-        { name: "GraphQL", level: 82, experience: "2+ years", description: "Apollo Server, schema design, resolvers" },
-        { name: "REST APIs", level: 95, experience: "6+ years", description: "Design, documentation, versioning" }
+        { name: "Node.js & Express.js", level: 88, experience: "3+ years", description: "Asynchronous runtime, MVC routes, middleware" },
+        { name: "MongoDB", level: 86, experience: "3+ years", description: "NoSQL modeling, aggregation pipeline" },
+        { name: "PostgreSQL & MySQL", level: 85, experience: "2+ years", description: "Relational queries, schema design" },
+        { name: "Supabase & Firebase", level: 88, experience: "2+ years", description: "BaaS database, real-time sync, auth integration" },
+        { name: "Clerk & JWT / bcrypt", level: 90, experience: "2+ years", description: "Auth tokens, secure passwords, session management" },
+        { name: "REST APIs", level: 92, experience: "3+ years", description: "Robust API endpoints design, CRUD, status codes" }
       ]
     },
     devops: {
-      title: "DevOps & Cloud",
+      title: "AI & Cloud DevOps",
       icon: "Cloud",
       color: "from-purple-500 to-pink-500",
       skills: [
-        { name: "AWS", level: 85, experience: "3+ years", description: "EC2, S3, Lambda, RDS, CloudFormation" },
-        { name: "Docker", level: 88, experience: "4+ years", description: "Containerization, multi-stage builds" },
-        { name: "CI/CD", level: 90, experience: "4+ years", description: "GitHub Actions, Jenkins, automated testing" },
-        { name: "Kubernetes", level: 75, experience: "2+ years", description: "Deployments, services, ingress" },
-        { name: "Terraform", level: 78, experience: "2+ years", description: "Infrastructure as code, modules" },
-        { name: "Monitoring", level: 82, experience: "3+ years", description: "Prometheus, Grafana, logging" }
+        { name: "Agentic AI & Chatbots", level: 90, experience: "1+ year", description: "Autonomous workflows, custom assistants" },
+        { name: "Vapi AI", level: 92, experience: "1+ year", description: "Voice conversational AI, low-latency calls" },
+        { name: "OpenAI & Gemini APIs", level: 90, experience: "2+ years", description: "Prompt engineering, function calling, embeddings" },
+        { name: "AWS", level: 78, experience: "1+ year", description: "EC2, S3 bucket storage, cloud instances" },
+        { name: "Docker", level: 80, experience: "2+ years", description: "Environment containerization, multi-stage builds" },
+        { name: "Vercel & Render", level: 90, experience: "3+ years", description: "Static/serverless deployments, pipeline automation" }
       ]
     },
     tools: {
@@ -63,15 +63,18 @@ const SkillsMatrix = () => {
       icon: "Wrench",
       color: "from-orange-500 to-red-500",
       skills: [
-        { name: "Git", level: 95, experience: "8+ years", description: "Advanced workflows, branching strategies" },
-        { name: "VS Code", level: 98, experience: "6+ years", description: "Extensions, debugging, customization" },
-        { name: "Figma", level: 85, experience: "3+ years", description: "Design systems, prototyping, collaboration" },
-        { name: "Jest/Testing", level: 88, experience: "4+ years", description: "Unit, integration, e2e testing" },
-        { name: "Webpack/Vite", level: 85, experience: "4+ years", description: "Build optimization, plugins" },
-        { name: "Postman", level: 90, experience: "5+ years", description: "API testing, automation, documentation" }
+        { name: "Git & GitHub", level: 92, experience: "3+ years", description: "Version control, branching, pull requests" },
+        { name: "Postman", level: 90, experience: "3+ years", description: "API endpoints testing, documentation" },
+        { name: "Cloudinary", level: 88, experience: "2+ years", description: "Cloud media uploads and optimization" },
+        { name: "VS Code", level: 95, experience: "3+ years", description: "Workspace customization, active extensions" }
       ]
     }
   };
+
+  const allSkills = Object.values(skillCategories).flatMap(category => category.skills);
+  const expertCount = allSkills.filter(skill => skill.level >= 90).length;
+  const advancedCount = allSkills.filter(skill => skill.level >= 80 && skill.level < 90).length;
+  const intermediateCount = allSkills.filter(skill => skill.level >= 70 && skill.level < 80).length;
 
   const getSkillLevelColor = (level) => {
     if (level >= 90) return "bg-success";
@@ -186,28 +189,28 @@ const SkillsMatrix = () => {
               <div className="w-16 h-16 bg-gradient-to-br from-success to-green-600 rounded-full flex items-center justify-center mx-auto mb-3">
                 <Icon name="Award" size={24} color="white" />
               </div>
-              <div className="text-2xl font-bold text-foreground">12</div>
+              <div className="text-2xl font-bold text-foreground">{expertCount}</div>
               <div className="text-sm text-muted-foreground">Expert Level</div>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-gradient-to-br from-accent to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3">
                 <Icon name="TrendingUp" size={24} color="white" />
               </div>
-              <div className="text-2xl font-bold text-foreground">8</div>
+              <div className="text-2xl font-bold text-foreground">{advancedCount}</div>
               <div className="text-sm text-muted-foreground">Advanced Level</div>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-gradient-to-br from-warning to-orange-600 rounded-full flex items-center justify-center mx-auto mb-3">
                 <Icon name="Target" size={24} color="white" />
               </div>
-              <div className="text-2xl font-bold text-foreground">4</div>
+              <div className="text-2xl font-bold text-foreground">{intermediateCount}</div>
               <div className="text-sm text-muted-foreground">Intermediate Level</div>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-3">
                 <Icon name="BookOpen" size={24} color="white" />
               </div>
-              <div className="text-2xl font-bold text-foreground">8+</div>
+              <div className="text-2xl font-bold text-foreground">3+</div>
               <div className="text-sm text-muted-foreground">Years Experience</div>
             </div>
           </div>

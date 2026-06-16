@@ -64,15 +64,15 @@ const CareerTimeline = () => {
     {
       year: "2026",
       title: "Present",
-      role: "AI-Powered Apps & EngineersMaterial.in",
-      company: "Independent · Live Product",
-      description: "Built and launched two real products: an AI-Powered Test & Quiz Application with performance tracking, and EngineersMaterial.in — a live AI-enabled study resource platform for engineering students,actively running today.",
+      role: "AI-Powered Platforms Development",
+      company: "Independent · Shipped Apps",
+      description: "Developed and shipped advanced AI-powered applications including an AI Interview Companion for voice mock interviews and PathCraft, an AI Learning Recommendation System.",
       achievements: [
-        "Launched EngineersMaterial.in — a live platform used by engineering students",
-        "Built AI-powered quiz app with structured backend & performance analytics",
-        "Designed & optimized database structures and SQL queries"
+        "Built voice-based AI Mock Interview agent with low-latency using Vapi AI",
+        "Designed dynamic learning trees and course recommendation flows using OpenAI & Gemini",
+        "Implemented secure auth & state synchronization using Clerk and Supabase"
       ],
-      technologies: ["React", "JavaScript", "Python", "MongoDB", "AI/ GenAI"],
+      technologies: ["Next.js", "Vapi AI", "Supabase", "OpenAI", "Gemini", "Clerk"],
       icon: "Trophy"
     }
   ];

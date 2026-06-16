@@ -7,6 +7,36 @@ const ProjectsSection = () => {
 
   const projects = [
     {
+      title: "AI Interview Companion",
+      description: "An AI-powered interview preparation platform that conducts real-time voice-based mock interviews using Vapi AI, Clerk, and Supabase.",
+      liveUrl: "https://interview-companion-tuvs.vercel.app/",
+      codeUrl: "https://github.com/saurabhanand122/Interview_companion",
+      tech: ["Next.js", "TypeScript", "Vapi AI", "Clerk", "Supabase"],
+      screenshot: "/assets/images/ai-interview-companion.png",
+      color: "from-violet-600 to-indigo-600",
+      icon: "Mic",
+      features: [
+        "Developed an AI-powered interview preparation platform that conducts real-time voice-based mock interviews using Vapi AI.",
+        "Implemented secure user authentication and profile management using Clerk with role-based access control.",
+        "Integrated Supabase for database management, interview history storage, and real-time data synchronization."
+      ]
+    },
+    {
+      title: "AI Learning Recommendation System",
+      description: "An AI-powered learning recommendation platform that generates personalized course and career pathways based on student interests and goals.",
+      liveUrl: "https://ai-learning-recommendation-system-f.vercel.app/",
+      codeUrl: "https://github.com/saurabhanand122/ai-learning-recommendation-system",
+      tech: ["Next.js", "Supabase", "OpenAI", "Gemini", "Vapi AI"],
+      screenshot: "/assets/images/ai-learning-recommendation.png",
+      color: "from-cyan-500 to-teal-500",
+      icon: "GraduationCap",
+      features: [
+        "Built an AI-powered learning recommendation platform that generates personalized course and career pathways based on student interests and goals.",
+        "Integrated OpenAI, Gemini, and Vapi AI to provide intelligent recommendations, chatbot assistance, and voice-based learning guidance.",
+        "Developed role-based Student, Admin, and Coordinator dashboards using Next.js, Express.js, Supabase, and Clerk authentication."
+      ]
+    },
+    {
       title: "Sehat Connect",
       description: "A comprehensive healthcare platform connecting patients with doctors through modern web technology. Features appointment booking, telemedicine consultations, and health record management.",
       liveUrl: "https://sehat-connect-psi.vercel.app/",
@@ -14,37 +44,27 @@ const ProjectsSection = () => {
       tech: ["React", "Node.js", "MongoDB", "Socket.io"],
       screenshot: "/assets/images/sehat-connect.png",
       color: "from-primary to-accent",
-      icon: "Heart"
+      icon: "Heart",
+      features: [
+        "A comprehensive healthcare platform connecting patients with doctors through modern web technology.",
+        "Features appointment booking and telemedicine consultations.",
+        "Integrated health record management."
+      ]
     },
     {
-      title: "Chat Application",
-      description: "Real-time messaging platform with modern UI/UX design. Features group chats, direct messaging, file sharing, and online status indicators.",
+      title: "Real-Time Chat Application",
+      description: "Engineered a full-stack real-time chat application using MongoDB, Express.js, React.js, and Node.js.",
       liveUrl: "https://my-chat-app-74fw.vercel.app/",
       codeUrl: "https://github.com/saurabhanand122/my-chat-app",
-      tech: ["React", "Socket.io", "Express", "MongoDB"],
+      tech: ["MERN", "Socket.io", "Tailwind CSS", "Daisy UI", "Cloudinary"],
       screenshot: "/assets/images/chat-app.png",
       color: "from-purple-500 to-pink-500",
-      icon: "MessageCircle"
-    },
-    {
-      title: "Engineers Material",
-      description: "Comprehensive study resource platform for engineering students. AI-powered quiz system, study materials, and interactive learning tools.",
-      liveUrl: "https://official-engineers-material.vercel.app/",
-      codeUrl: "https://github.com/saurabhanand122/official_EngineersMaterial",
-      tech: ["Next.js", "AI/ML", "PostgreSQL", "Tailwind"],
-      screenshot: "/assets/images/engineers-material.png",
-      color: "from-green-500 to-teal-500",
-      icon: "BookOpen"
-    },
-    {
-      title: "Portfolio Website",
-      description: "This futuristic 3D portfolio website showcasing modern web development skills with interactive animations, 3D models, and responsive design.",
-      liveUrl: "#",
-      codeUrl: "https://github.com/saurabhanand122/my_portfolio",
-      tech: ["Next.js", "Three.js", "Framer Motion", "Tailwind"],
-      screenshot: "/assets/images/portfolio.png",
-      color: "from-orange-500 to-red-500",
-      icon: "Code"
+      icon: "MessageSquare",
+      features: [
+        "Engineered a full-stack real-time chat application using MongoDB, Express.js, React.js, and Node.js.",
+        "Integrated Socket.io for bidirectional real-time communication supporting instant messaging and live updates.",
+        "Implemented JWT Authentication, protected routes, secure login/signup workflows, and Cloudinary media uploads."
+      ]
     }
   ];
 
@@ -52,11 +72,11 @@ const ProjectsSection = () => {
     <section id="projects" className="relative overflow-hidden scroll-mt-20 py-20 bg-transparent">
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
             Featured Projects
           </h2>
-          <p className="text-lg text-slate-300 max-w-3xl mx-auto">
-            A showcase of my recent work, from healthcare platforms to AI-powered educational tools
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            A showcase of my recent work, from healthcare platforms to voice-based AI interviewers and personalized learning pathways
           </p>
         </div>
 
@@ -128,14 +148,24 @@ const ProjectsSection = () => {
               </div>
 
               {selectedProject === index && (
-                <div className="rounded-3xl border border-accent/20 bg-surface p-5 text-foreground shadow-xl">
-                  <p className="text-slate-300 mb-4">
-                    <span className="font-semibold text-white">Details:</span> {project.description}
-                  </p>
-                  <ul className="space-y-2 text-slate-300 text-sm">
-                    <li><span className="font-semibold text-white">Live link:</span> <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-100">{project.liveUrl}</a></li>
-                    <li><span className="font-semibold text-white">Code repo:</span> <a href={project.codeUrl} target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-100">{project.codeUrl}</a></li>
-                    <li><span className="font-semibold text-white">Tech stack:</span> {project.tech.join(', ')}</li>
+                <div className="rounded-3xl border border-accent/20 bg-surface p-5 text-foreground shadow-xl mt-4 space-y-4">
+                  {project.features && (
+                    <div>
+                      <span className="font-semibold text-white block mb-2">Key Features:</span>
+                      <ul className="space-y-1.5 text-slate-300 text-sm pl-1">
+                        {project.features.map((feature, fIndex) => (
+                          <li key={fIndex} className="leading-relaxed flex items-start space-x-2">
+                            <Icon name="CheckCircle2" size={16} className="text-accent mt-0.5 flex-shrink-0" />
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  <ul className="space-y-2 text-slate-300 text-sm border-t border-border/50 pt-4">
+                    <li><span className="font-semibold text-white">Live Link:</span> <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-100 break-all">{project.liveUrl}</a></li>
+                    <li><span className="font-semibold text-white">Code Repo:</span> <a href={project.codeUrl} target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-100 break-all">{project.codeUrl}</a></li>
+                    <li><span className="font-semibold text-white">Tech Stack:</span> {project.tech.join(', ')}</li>
                   </ul>
                 </div>
               )}

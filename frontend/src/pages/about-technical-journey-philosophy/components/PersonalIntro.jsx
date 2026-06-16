@@ -23,7 +23,7 @@ const PersonalIntro = () => {
                 My journey into tech started with a simple question — "how does this actually work?" That curiosity led me deep into codebases, data structures, and building things from scratch. I'm a final-year B.Tech Computer Science student at United Institute of Technology, Prayagraj, I've been building real products ever since.
               </p>
               <p>
-                I've shipped projects ranging from a college companion website to an AI-powered quiz app and an actively running platform — EngineersMaterial.in — an AI-enabled study resource for engineering students. I don't just write code; I think about data flows, user experience, and clean architecture.
+                I've shipped projects ranging from real-time communication tools to advanced AI-powered applications, such as a voice-based AI Mock Interview platform and an AI Learning Recommendation system. I don't just write code; I think about data flows, user experience, and clean architecture.
               </p>
               <p>
                 I believe that great developers are digital craftspeople who blend technical precision with creative vision. Every project is an opportunity to push boundaries, challenge assumptions, and create something meaningful that stands the test of time.
