@@ -92,16 +92,16 @@ const CertificatesSection = () => {
               className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center bg-card/40 border border-border rounded-2xl p-6 sm:p-10 shadow-brand"
             >
               
-              {/* Left Column: PDF Certificate Viewer with CSS Crop to blend in */}
+              {/* Left Column: PDF Certificate Viewer with adjusted CSS Crop to show borders fully */}
               <div className="lg:col-span-7 w-full h-[320px] sm:h-[420px] rounded-xl overflow-hidden bg-white border border-border shadow-brand-lg relative group select-none">
                 <iframe
                   src={`${currentCert.pdfUrl}#toolbar=0&navpanes=0&scrollbar=0&view=Fit`}
                   className="absolute border-0 outline-none pointer-events-none"
                   style={{
-                    width: '124%',
-                    height: '124%',
-                    top: '-12%',
-                    left: '-12%'
+                    width: '103%',
+                    height: '111%',
+                    top: '-9.5%',
+                    left: '-1.5%'
                   }}
                   title={currentCert.title}
                 />
