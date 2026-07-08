@@ -1,8 +1,9 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import Icon from '../../../components/AppIcon';
 import Image from '../../../components/AppImage';
 
-const PersonalIntro = () => {
+const PersonalIntro = ({ isLowPerformance = false }) => {
   return (
     <section id="home" className="relative overflow-hidden scroll-mt-20 bg-transparent py-20">
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">

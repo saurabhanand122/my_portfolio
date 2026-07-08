@@ -10,6 +10,7 @@ const navigationItems = [
   { name: 'Journey', id: 'journey', icon: 'Route' },
   { name: 'Projects', id: 'projects', icon: 'Briefcase' },
   { name: 'Skills', id: 'skills', icon: 'Code' },
+  { name: 'Certificates', id: 'certificates', icon: 'Award' },
   { name: 'Beyond Code', id: 'beyond-code', icon: 'Sparkles' },
   { name: 'Connect', id: 'connect', icon: 'MessageCircle' },
   {

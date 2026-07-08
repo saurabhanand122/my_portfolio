@@ -8,6 +8,7 @@ import PersonalIntro from './components/PersonalIntro';
 import CareerTimeline from './components/CareerTimeline';
 import ProjectsSection from '../../components/ProjectsSection';
 import SkillsMatrix from './components/SkillsMatrix';
+import CertificatesSection from './components/CertificatesSection';
 import BeyondCode from './components/BeyondCode';
 import ScrollDownButton from '../../components/ScrollDownButton';
 import Footer from '../../components/ui/Footer';
@@ -29,11 +30,25 @@ const Loader = dynamic(() => import('../../components/Loader'), {
 
 const AboutTech = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [isLowPerformance, setIsLowPerformance] = useState(false);
 
   useEffect(() => {
+    // Detect low performance systems / mobile browsers
+    const checkPerformance = () => {
+      const canvas = document.createElement('canvas');
+      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      const hasLowMemory = navigator.deviceMemory && navigator.deviceMemory < 4;
+      const hasSlowCPU = navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4;
+
+      setIsLowPerformance(!gl || isMobile || hasLowMemory || hasSlowCPU);
+    };
+
+    checkPerformance();
+
     const timer = window.setTimeout(() => {
       setIsLoading(false);
-    }, 1200);
+    }, 600);
 
     return () => window.clearTimeout(timer);
   }, []);
@@ -52,7 +67,7 @@ const AboutTech = () => {
       {isLoading && <Loader />}
 
       <div className={`relative min-h-screen overflow-hidden bg-background text-foreground ${isLoading ? 'pointer-events-none' : ''}`}>
-        <StarBackground />
+        <StarBackground isLowPerformance={isLowPerformance} />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(168,85,247,0.12),_transparent_35%),radial-gradient(circle_at_20%_20%,_rgba(16,185,129,0.08),_transparent_18%),radial-gradient(circle_at_80%_10%,_rgba(139,92,246,0.08),_transparent_16%)]" />
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),transparent_18%)]" />
         <Header />
@@ -64,7 +79,7 @@ const AboutTech = () => {
           <div className="relative z-10">
             {/* Personal Introduction */}
             <AnimatedSection delay={0.1}>
-              <PersonalIntro />
+              <PersonalIntro isLowPerformance={isLowPerformance} />
             </AnimatedSection>
 
             {/* Career Timeline */}
@@ -82,7 +97,10 @@ const AboutTech = () => {
               <SkillsMatrix />
             </AnimatedSection>
 
-
+            {/* Certificates Section */}
+            <AnimatedSection delay={0.5}>
+              <CertificatesSection />
+            </AnimatedSection>
 
             {/* Beyond Code */}
             <AnimatedSection delay={0.6}>

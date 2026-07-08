@@ -78,7 +78,7 @@ const ValuesSection = () => {
   ];
 
   return (
-    <section className="relative overflow-hidden py-20 bg-transparent">
+    <section id="values" className="relative overflow-hidden scroll-mt-20 py-20 bg-transparent">
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">

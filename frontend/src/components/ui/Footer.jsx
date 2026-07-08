@@ -9,6 +9,7 @@ export default function Footer() {
     { name: 'Journey', id: 'journey' },
     { name: 'Projects', id: 'projects' },
     { name: 'Skills', id: 'skills' },
+    { name: 'Values', id: 'values' },
     { name: 'Beyond Code', id: 'beyond-code' },
     { name: 'Connect', id: 'connect' }
   ];

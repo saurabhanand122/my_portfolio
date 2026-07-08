@@ -18,8 +18,8 @@ function FloatingCluster() {
         <mesh position={[-1.6, 0.4, 0]}>
           <torusGeometry args={[0.8, 0.22, 32, 120]} />
           <MeshDistortMaterial
-            color="#38bdf8"
-            emissive="#38bdf8"
+            color="#ff2a5f"
+            emissive="#e11d48"
             metalness={0.85}
             roughness={0.1}
             distort={0.15}
@@ -32,8 +32,8 @@ function FloatingCluster() {
         <mesh position={[1.5, -0.6, -0.3]}> 
           <boxGeometry args={[0.7, 0.7, 0.7]} />
           <meshStandardMaterial
-            color="#fb7185"
-            emissive="#f472b6"
+            color="#ff9f1c"
+            emissive="#d97706"
             metalness={0.9}
             roughness={0.12}
           />
@@ -44,8 +44,8 @@ function FloatingCluster() {
         <mesh position={[0.4, 1.1, 0.8]}> 
           <octahedronGeometry args={[0.5, 0]} />
           <meshStandardMaterial
-            color="#a855f7"
-            emissive="#9333ea"
+            color="#f43f5e"
+            emissive="#fb7185"
             metalness={0.8}
             roughness={0.1}
           />
@@ -56,8 +56,8 @@ function FloatingCluster() {
         <mesh position={[0.8, -1.2, 1]}> 
           <cylinderGeometry args={[0.25, 0.25, 1.6, 32]} />
           <meshStandardMaterial
-            color="#22d3ee"
-            emissive="#0ea5e9"
+            color="#ec4899"
+            emissive="#db2777"
             metalness={0.8}
             roughness={0.1}
           />
@@ -66,12 +66,27 @@ function FloatingCluster() {
 
       <mesh position={[0, -1.8, 0]} rotation={[-Math.PI / 2, 0, 0]}>
         <ringGeometry args={[1.6, 2.4, 64]} />
-        <meshBasicMaterial color="#60a5fa" transparent opacity={0.16} />
+        <meshBasicMaterial color="#ff2a5f" transparent opacity={0.16} />
       </mesh>
     </group>
   );
 }
 
-export default function Section3DAccent() {
-  return null;
+export default function Section3DAccent({ small = false }) {
+  return (
+    <div className={`pointer-events-none absolute inset-0 ${small ? 'opacity-60' : 'opacity-75'}`}>
+      <Canvas
+        camera={{ position: [0, 0, 6], fov: 30 }}
+        gl={{ alpha: true, antialias: true }}
+        style={{ position: 'absolute', inset: 0 }}
+      >
+        <ambientLight intensity={0.45} />
+        <directionalLight position={[4, 5, 5]} intensity={1.1} color="#ffebee" />
+        <pointLight position={[-4, -2, 1]} intensity={0.6} color="#ff2a5f" />
+        <FloatingCluster />
+        <Sparkles count={80} size={3} scale={10} color="#ff9f1c" />
+        <OrbitControls enabled={false} />
+      </Canvas>
+    </div>
+  );
 }
